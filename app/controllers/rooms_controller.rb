@@ -2,7 +2,7 @@ class RoomsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @rooms = Room.all
+    @rooms = Room.search(params[:search])
   end
 
   def new
@@ -47,6 +47,6 @@ class RoomsController < ApplicationController
 
 private
   def room_params
-    params.require(:room).permit(:location, :price, :user_id)
+    params.require(:room).permit(:location, :price, :user_id, :search)
   end
 end
