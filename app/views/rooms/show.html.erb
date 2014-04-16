@@ -15,6 +15,23 @@
 <% if current_user && current_user != @room.user %>
   <%= link_to "Book this Place", bookings_path(user_id: current_user.id, room_id: @room.id), method: :post%>
 <% end %>
+<br/>
+<br/>
+
+<h4>Reviews</h4>
+  <div id="ratings">
+  <% @room.ratings.each do |rating| %>
+    <p>
+      <% rating.stars.times do %>
+        <%= "\u2605" %>
+      <% end %>
+    </p>
+    <p><%= rating.review %></p>
+  <% end %>
+</div>
+<br/>
+<br/>
+
 
 <% if current_user && Booking.room_booked_by_user(@room, current_user) %>
   <p>Rate this Room</p>
