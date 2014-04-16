@@ -1,0 +1,10 @@
+<h1>Greetings!</h1>
+
+<p><%= @traveler.email %> has booked this room, owned by <%= @owner.email %>:</p>
+<p><%= @room.location %></p>
+<% #TODO Fix embedded pictures  %>
+<p><%= image_tag @room.pictures.first.image.url(:medium) %></p>
+<p><%= @room.price %></p>
+
+
+<h2>Have a great trip!</h2>
