@@ -1,0 +1,13 @@
+<%= content_for :title, @room.location %>
+
+<h1><%= @room.location %></h1>
+<h4><%= @room.price %></h4>
+
+<% if current_user == @room.user %>
+  <%= link_to "Add Pictures", new_room_picture_path(@room) %>
+<% end %>
+
+<% @room.pictures.each do |picture| %>
+  <p><%= image_tag picture.image.url(:medium) %></p>
+  <p><%= picture.caption %></p>
+<% end %>

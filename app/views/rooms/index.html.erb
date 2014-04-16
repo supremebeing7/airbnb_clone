@@ -1,6 +1,10 @@
 <%= content_for :title, "All the Rooms" %>
 
+<h1>Rooms</h1>
+
 <% @rooms.each do |room| %>
-  <p><%= room.location %></p>
+  <p><%= link_to room.location, room_path(room) %></p>
   <p><%= "$" + sprintf('%.2f', room.price) %></p>
 <% end %>
+
+<%= link_to "Add a New Room for Rent", new_room_path %>
