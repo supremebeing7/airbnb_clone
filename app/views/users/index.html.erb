@@ -3,5 +3,7 @@
 <h1>Users</h1>
 
 <% @users.each do |user| %>
-  <%= user.email %>
+  <p><%= user.email %></p>
 <% end %>
+
+<%= link_to "Add a New Room for Rent", new_room_path %>

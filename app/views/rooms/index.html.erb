@@ -1,0 +1,6 @@
+<%= content_for :title, "All the Rooms" %>
+
+<% @rooms.each do |room| %>
+  <p><%= room.location %></p>
+  <p><%= "$" + sprintf('%.2f', room.price) %></p>
+<% end %>
