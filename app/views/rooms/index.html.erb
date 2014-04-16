@@ -10,6 +10,9 @@
 <% @rooms.each do |room| %>
   <p><%= link_to room.location, room_path(room) %></p>
   <p><%= "$" + sprintf('%.2f', room.price) %></p>
+  <% if room.pictures.count > 0 %>
+    <p><%= image_tag room.pictures.first.image.url(:thumb) %></p>
+  <% end %>
 <% end %>
 
 <%= link_to "Add a New Room for Rent", new_room_path %>

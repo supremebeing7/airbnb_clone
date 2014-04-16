@@ -5,4 +5,7 @@ AirbnbClone::Application.routes.draw do
   resources :rooms do
     resources :pictures
   end
+
+  resources :bookings, only: [:create]
+
 end
