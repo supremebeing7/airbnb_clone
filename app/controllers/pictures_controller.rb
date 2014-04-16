@@ -6,10 +6,12 @@ class PicturesController < ApplicationController
   end
 
   def new
+    @room = Room.find(params[:room_id])
     @picture = Picture.new
   end
 
   def create
+    @room = Room.find(params[:room_id])
     @picture = Picture.new(picture_params)
     if @picture.save
       flash[:notice] = "Thanks for adding a new picture!"

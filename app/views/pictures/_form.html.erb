@@ -1,0 +1,10 @@
+<%= form_for @picture, url: room_pictures_path(@room), :html => { :multipart => true } do |f| %>
+  <%= f.hidden_field :room_id, :value => @room.id %>
+  <div class="form-group">
+    <%= f.file_field :image %>
+  </div>
+  <div class='form-group'>
+    <%= f.text_field :caption, :placeholder => 'Caption'  %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
