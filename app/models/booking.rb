@@ -7,6 +7,7 @@ class Booking < ActiveRecord::Base
     Booking.exists?(room_id: room.id, user_id: user.id)
   end
 
+
   def send_booking_confirmation
     BookingMailer.booking_confirmation(self).deliver
   end

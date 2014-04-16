@@ -1,22 +1,26 @@
 <%= content_for :title, @room.location %>
 
-<h1><%= @room.location %></h1>
-<h4><%= @room.price %></h4>
+<div class="row">
+  <div class="col-md-9">
+    <h1><%= @room.location %></h1>
+    <h4><%= @room.price %></h4>
 
-<% if current_user == @room.user %>
-  <%= link_to "Add Pictures", new_room_picture_path(@room) %>
-<% end %>
+    <% if current_user == @room.user %>
+      <%= link_to "Add Pictures", new_room_picture_path(@room) %>
+    <% end %>
 
-<% @room.pictures.each do |picture| %>
-  <p><%= image_tag picture.image.url(:medium) %></p>
-  <p><%= picture.caption %></p>
-<% end %>
+    <%= render @room %>
+  </div>
 
-<% if current_user && current_user != @room.user %>
-  <%= link_to "Book this Place", bookings_path(user_id: current_user.id, room_id: @room.id), method: :post%>
-<% end %>
-<br/>
-<br/>
+  <div class="col-md-3 pull-right">
+    <% if current_user && current_user != @room.user %>
+      <%= render 'bookings/form' %>
+      <%= link_to "Book this Place", bookings_path(user_id: current_user.id, room_id: @room.id), method: :post%>
+    <% end %>
+  </div>
+  <br/>
+  <br/>
+</div>
 
 <h4>Reviews</h4>
   <div id="ratings">

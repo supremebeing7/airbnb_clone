@@ -1,0 +1,4 @@
+<% @room.pictures.each do |picture| %>
+  <p><%= image_tag picture.image.url %></p>
+  <p><%= picture.caption %></p>
+<% end %>

@@ -15,6 +15,7 @@ gem 'letter_opener'
 gem 'faker'
 gem 'devise'
 gem 'activesupport', '~>4.0.4'
+gem 'formtastic'
 
 
 group :development do
