@@ -15,3 +15,8 @@
 <% if current_user != @room.user %>
   <%= link_to "Book this Place", bookings_path(user_id: current_user.id, room_id: @room.id), method: :post%>
 <% end %>
+
+<% if Booking.room_booked_by_user(@room, current_user) %>
+  <% #TODO method works, now add form to rate... the below doesn't work! %>
+  <%= link_to "Rate this place", ratings_path(user_id: current_user.id, room_id: @room.id), method: :post%>
+<% end %>

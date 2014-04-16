@@ -7,5 +7,6 @@ AirbnbClone::Application.routes.draw do
   end
 
   resources :bookings, only: [:create]
+  resources :ratings, only: [:create, :update]
 
 end

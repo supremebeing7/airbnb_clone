@@ -6,8 +6,8 @@ AirBnb Clone
 * DONE ** As a traveler, I want to search for places by location, so I can more easily find something.
 * As a traveler, I want to be able to rate and review the places I've stayed, so others can see which are good.
 * DONE ** As a host, I want to post pictures of my rooms, so users can see what they look like.
-* As a traveler, I want to receive an email confirmation when I have booked a room.
-* As a host, I want to receive an email confirmation when a traveler books one of my rooms.
+* DONE ** As a traveler, I want to receive an email confirmation when I have booked a room.
+* DONE ** As a host, I want to receive an email confirmation when a traveler books one of my rooms.
 
 
 
