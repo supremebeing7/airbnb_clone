@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
     @room = Room.find(params[:room_id])
     @user = User.find(params[:user_id])

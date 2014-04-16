@@ -21,6 +21,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @rating = Rating.new
   end
 
   def edit

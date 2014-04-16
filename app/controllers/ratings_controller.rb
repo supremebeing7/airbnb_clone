@@ -1,14 +1,13 @@
 class RatingsController < ApplicationController
+
   def create
-    @room = Room.find(params[:room_id])
-    @user = User.find(params[:user_id])
-    Rating.create(user_id: @user.id, room_id: @room.id, ratings_params)
-    redirect_to room_path(@room), notice: "Rated!"
+    @rating = Rating.create(ratings_params)
+    redirect_to room_path(@rating.room), notice: "Rated!"
   end
 
-  private
+private
 
   def ratings_params
-    params.require(:rating).permit(:stars)
+    params.require(:rating).permit(:stars, :room_id, :user_id)
   end
 end

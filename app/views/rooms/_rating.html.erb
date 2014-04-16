@@ -1,0 +1,30 @@
+<%= form_for @rating, :url=> ratings_path, method: :post do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :room_id, :value => @room.id %>
+  <%= f.radio_button :stars, 1, id: 'stars1' %>
+  <%= f.label "Terrible!", for: "star1" %>
+  <%= f.radio_button :stars, 2, id: 'stars2' %>
+  <%= f.label "Not good", for: "star2" %>
+  <%= f.radio_button :stars, 3, id: 'stars3' %>
+  <%= f.label "So-So", for: "star3" %>
+  <%= f.radio_button :stars, 4, id: 'stars4' %>
+  <%= f.label "Nice", for: "star4" %>
+  <%= f.radio_button :stars, 5, id: 'stars5' %>
+  <%= f.label "Flippin' Fantastic!", for: "star5" %>
+  <p>&nbsp;&nbsp;<%= f.submit %></p>
+<% end %>
+
+<% #TODO Fix to make it look pretty %>
+<!-- <form action="/ratings" method="post">
+  <fieldset class="rating">
+    <legend>Please rate:</legend>
+    <input type="radio" id="star5" name="rating[stars]" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+    <input type="radio" id="star4" name="rating[stars]" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+    <input type="radio" id="star3" name="rating[stars]" value="3" /><label for="star3" title="Meh">3 stars</label>
+    <input type="radio" id="star2" name="rating[stars]" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+    <input type="radio" id="star1" name="rating[stars]" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+    <input type="hidden" name="rating[user_id]" value="<%= current_user.id %>">
+    <input type="hidden" name="rating[room_id]" value="<%= @room.id %>">
+  </fieldset>
+  <button type="submit">RATE!</button>
+</form> -->
