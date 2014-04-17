@@ -9,4 +9,20 @@ describe Booking do
       Booking.room_booked_by_user(room, user).should eq true
     end
   end
+
+  context '#available' do
+    it 'checks if there is overlap in booking date sets' do
+      room = FactoryGirl.create :room
+      booking0 = Booking.create(room_id: room.id, start_date: "01-01-14",
+                               end_date: "05-01-14")
+      booking1 = Booking.create(room_id: room.id, start_date: "24-01-14",
+                             end_date: "26-01-14")
+      booking2 = Booking.new(room_id: room.id, start_date: "04-01-14",
+                               end_date: "09-01-14")
+      Booking.available(booking2.start_date, booking2.end_date, room).should eq false
+      booking3 = Booking.new(room_id: room.id, start_date: "14-01-14",
+                             end_date: "19-01-14")
+      Booking.available(booking3.start_date, booking3.end_date, room).should eq true
+    end
+  end
 end
