@@ -4,13 +4,17 @@ class RoomsController < ApplicationController
   def index
     @available_rooms = []
     @rooms = Room.search(params[:location])
-    @rooms.each do |room|
-      @booking = Booking.new(room_id: room.id,
-                              start_date: params[:start_date],
-                              end_date: params[:end_date])
-      if Booking.available(@booking)
-        @available_rooms << room
+    if params[:start_date] != "" && params[:end_date] != ""
+      @rooms.each do |room|
+        @booking = Booking.new(room_id: room.id,
+                                start_date: params[:start_date],
+                                end_date: params[:end_date])
+        if Booking.available(@booking)
+          @available_rooms << room
+        end
       end
+    else
+      @available_rooms = @rooms
     end
     @available_rooms
   end
