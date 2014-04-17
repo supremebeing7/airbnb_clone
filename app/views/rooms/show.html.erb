@@ -15,7 +15,6 @@
   <div class="col-md-3 pull-right">
     <% if current_user && current_user != @room.user %>
       <%= render 'bookings/form' %>
-      <%= link_to "Book this Place", bookings_path(user_id: current_user.id, room_id: @room.id), method: :post%>
     <% end %>
   </div>
   <br/>

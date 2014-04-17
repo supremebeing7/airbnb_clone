@@ -19,10 +19,10 @@ describe Booking do
                              end_date: "26-01-14")
       booking2 = Booking.new(room_id: room.id, start_date: "04-01-14",
                                end_date: "09-01-14")
-      Booking.available(booking2.start_date, booking2.end_date, room).should eq false
+      Booking.available(booking2).should eq false
       booking3 = Booking.new(room_id: room.id, start_date: "14-01-14",
                              end_date: "19-01-14")
-      Booking.available(booking3.start_date, booking3.end_date, room).should eq true
+      Booking.available(booking3).should eq true
     end
   end
 end
