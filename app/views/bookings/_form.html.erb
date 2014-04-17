@@ -2,10 +2,10 @@
   <%= f.hidden_field :room_id, :value => @room.id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="form-group">
-    <%= f.date_select('start_date', :start => Time.now ) %>
+    <%= f.date_field('start_date', :start => Time.now ) %>
   </div>
   <div class='form-group'>
-    <%= f.date_select('end_date', default: 3.days.from_now ) %>
+    <%= f.date_field('end_date', default: 3.days.from_now ) %>
   </div>
   <%= f.submit(:class => "btn btn-primary") %>
 <% end %>

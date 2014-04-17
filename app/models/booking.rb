@@ -8,13 +8,15 @@ class Booking < ActiveRecord::Base
   end
 
   def self.available(booking)
-    this_rooms_bookings = Booking.where(room_id: booking.room_id)
-    this_rooms_bookings.each do |b|
-      if booking.start_date.between?(b.start_date, b.end_date) || booking.end_date.between?(b.start_date, b.end_date)
-        return false
+    if booking.start_date && booking.end_date
+      this_rooms_bookings = Booking.where(room_id: booking.room_id)
+      this_rooms_bookings.each do |b|
+        if booking.start_date.between?(b.start_date, b.end_date) || booking.end_date.between?(b.start_date, b.end_date)
+          return false
+        end
       end
+      true
     end
-    true
   end
 
   def send_booking_confirmation

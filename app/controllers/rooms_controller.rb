@@ -2,7 +2,17 @@ class RoomsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @rooms = Room.search(params[:search])
+    @available_rooms = []
+    @rooms = Room.search(params[:location])
+    @rooms.each do |room|
+      @booking = Booking.new(room_id: room.id,
+                              start_date: params[:start_date],
+                              end_date: params[:end_date])
+      if Booking.available(@booking)
+        @available_rooms << room
+      end
+    end
+    @available_rooms
   end
 
   def new
@@ -51,4 +61,5 @@ private
   def room_params
     params.require(:room).permit(:location, :price, :user_id, :search)
   end
+
 end
