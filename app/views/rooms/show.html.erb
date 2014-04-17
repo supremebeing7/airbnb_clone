@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-md-9">
     <h1><%= @room.location %></h1>
-    <h4><%= @room.price %></h4>
+    <h4><%= "$" + sprintf('%.2f', @room.price) %></h4>
 
     <% if current_user == @room.user %>
       <%= link_to "Add Pictures", new_room_picture_path(@room) %>
@@ -23,13 +23,17 @@
 
 <h4>Reviews</h4>
   <div id="ratings">
-  <% @room.ratings.each do |rating| %>
-    <p>
-      <% rating.stars.times do %>
-        <%= "\u2605" %>
-      <% end %>
-    </p>
+  <% if @room.ratings.count > 0 %>
+    <% @room.ratings.each do |rating| %>
+     <p>
+       <% rating.stars.times do %>
+          <%= "\u2605" %>
+       <% end %>
+     </p>
     <p><%= rating.review %></p>
+    <% end %>
+  <% else %>
+    <h4>This Room has not yet been Rated</h4>
   <% end %>
 </div>
 <br/>

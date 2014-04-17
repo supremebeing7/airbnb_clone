@@ -1,6 +1,6 @@
 <%= content_for :title, "All the Rooms" %>
 
-<h1>Rooms</h1>
+<h1>Find a Place to Stay</h1>
 
 
 
@@ -17,15 +17,21 @@
     <p>No rooms available in during those dates</p>
   <% end %>
 <% end %>
-<% @available_rooms.each do |room| %>
+<% @available_rooms.sort_by!{|room| room.average_rating}.reverse.each do |room| %>
   <p><%= link_to room.location, room_path(room) %></p>
   <p><%= "$" + sprintf('%.2f', room.price) %></p>
   <% if room.pictures.count > 0 %>
     <p><%= image_tag room.pictures.first.image.url(:thumb) %></p>
   <% end %>
 <% end %>
+<br>
 
-<%= link_to "Add a New Room for Rent", new_room_path %>
+<% @rooms.sort_by!{|r| r.average_rating}.reverse.first(6).each do |room| %>
+  <% if room.pictures.count > 0 %>
+    <%= link_to image_tag(room.pictures.first.image.url(:medium)), room_path(room) %>
+  <% end %>
+<% end %>
+<%= link_to "Add a New Room for Rent", new_room_path, class: 'btn btn-primary' %>
 
 
 
