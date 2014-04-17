@@ -1,0 +1,50 @@
+<%= content_for :title, @user.name %>
+
+<div class="row">
+
+  <h2>Profile for <%= @user.name %></h2>
+
+  <div class="col-md-3">
+    <p><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-warning" %></p>
+    <p><%= image_tag @user.avatar.url %></p>
+    <p><%= link_to "Upload New Photo", edit_user_path(@user), class: "btn btn-warning" %></p>
+  </div>
+
+  <div class="col-md-4">
+    <% if @user.rooms.count > 0 %>
+      <h4>Rooms owned</h4>
+      <% @user.rooms.each do |room| %>
+        <p><%= room.location %></p>
+        <p><%= "$" + sprintf("%.2f", room.price) %></p>
+        <p>Average Rating:
+          <% room.average_rating.round.times do %>
+            <%= "\u2605" %>
+          <% end %>
+        </p>
+        <% if room.pictures.count > 0 %>
+          <p><%= image_tag room.pictures.first.image.url(:medium) %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="col-md-4">
+    <% if @user.bookings.count > 0 %>
+      <h4>Places visited</h4>
+      <% @user.bookings.each do |booking| %>
+        <p><%= booking.room.location %></p>
+        <p>Average Rating:
+          <% booking.room.average_rating.round.times do %>
+            <%= "\u2605" %>
+          <% end %>
+        </p>
+        <% if booking.room.pictures.count > 0 %>
+          <p><%= image_tag booking.room.pictures.first.image.url(:medium) %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
