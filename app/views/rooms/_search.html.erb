@@ -1,16 +1,12 @@
-<%= form_tag rooms_path, :method => 'get' do %>
-  <p>
-    <div class="form-group">
-      <%= text_field_tag :location %>
-    </div>
-    <div class="form-group">
-      <%= date_field_tag :start_date %>
-    </div>
-    <div class="form-group">
-      <%= date_field_tag :end_date %>
-    </div>
-
-
-    <%= submit_tag "Search", :name => nil, class: "btn btn-primary btn-xs" %>
-  </p>
-<% end %>
+<div id="form-nav">
+  <%= form_tag rooms_path, :method => 'get' do %>
+    <p>
+      <div class="input-group input-group-sm">
+        <%= text_field_tag :location, nil, placeholder: "Where do you want to go?", class: "form-control" %>
+        <%= date_field_tag :start_date, class: "form-control" %>
+        <%= date_field_tag :end_date, class: "form-control" %>
+      <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
+      </div>
+    </p>
+  <% end %>
+</div>

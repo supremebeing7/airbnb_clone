@@ -2,14 +2,21 @@
 
 <h1>Rooms</h1>
 
-<%= render "search" %>
+
+
+<div class="fadein">
+  <% @pictures.each do |picture| %>
+    <%= image_tag picture.image.url %>
+  <% end %>
+</div>
+
+
 <% if params[:location] || params[:start_date] %>
   <h4>Search Results</h4>
   <% if @available_rooms.count == 0 %>
     <p>No rooms available in during those dates</p>
   <% end %>
 <% end %>
-
 <% @available_rooms.each do |room| %>
   <p><%= link_to room.location, room_path(room) %></p>
   <p><%= "$" + sprintf('%.2f', room.price) %></p>

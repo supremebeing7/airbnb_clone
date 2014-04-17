@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
+    @pictures = Picture.all
     @available_rooms = []
     @rooms = Room.search(params[:location])
     if params[:start_date] != "" && params[:end_date] != ""
