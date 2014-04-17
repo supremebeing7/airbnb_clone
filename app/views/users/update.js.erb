@@ -1,0 +1,3 @@
+$('#avatar_form').remove();
+$('#Upload_New_Photo').show();
+$('#avatar').load('<%= image_tag(@user.avatar.image.url) %>');

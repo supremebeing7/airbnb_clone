@@ -6,8 +6,8 @@
 
   <div class="col-md-3">
     <p><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-warning" %></p>
-    <p><%= image_tag @user.avatar.url %></p>
-    <p><%= link_to "Upload New Photo", edit_user_path(@user), class: "btn btn-warning" %></p>
+    <p><%= image_tag @user.avatar.url, id: 'avatar' %></p>
+    <p><%= link_to "Upload New Photo", edit_user_path(@user), class: "btn btn-warning", id: "Upload_New_Photo", remote: true %></p>
   </div>
 
   <div class="col-md-4">

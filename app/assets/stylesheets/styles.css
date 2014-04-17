@@ -57,3 +57,7 @@
 h1 {
   text-align: center;
 }
+
+#avatar {
+  width: 100px;
+}

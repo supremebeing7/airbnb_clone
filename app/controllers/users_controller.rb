@@ -31,8 +31,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = 'User Updated'
-      redirect_to user_path(@user)
+      respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js
+      end
     else
       flash[:notice] = 'Failed to Update'
       redirect_to :back
@@ -49,6 +51,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
   end
 end
