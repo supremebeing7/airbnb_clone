@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140417213343) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "caption"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ratings", force: true do |t|
