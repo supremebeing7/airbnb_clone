@@ -4,11 +4,15 @@
 
 
 
-<div class="fadein">
-  <% @pictures.each do |picture| %>
-    <%= image_tag picture.image.url %>
-  <% end %>
-</div>
+<% if @pictures.any? %>
+  <div class="fadein">
+    <% @pictures.each do |picture| %>
+      <%= image_tag picture.image.url %>
+    <% end %>
+  </div>
+<% else %>
+  <h3>Slideshow will display here once you add some rooms with pictures!</h3>
+<% end %>
 
 
 <% if params[:location] || params[:start_date] %>
