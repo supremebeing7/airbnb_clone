@@ -17,6 +17,9 @@ gem 'devise'
 gem 'activesupport', '~>4.0.4'
 gem 'formtastic'
 
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development do
   gem 'better_errors'
