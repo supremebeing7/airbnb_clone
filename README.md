@@ -1,6 +1,9 @@
 AirBnb Clone
 ============
 
+View the demo site here:
+[http://airbnb-clone.herokuapp.com/](http://airbnb-clone.herokuapp.com/)
+
 * *DONE* As a user, I want to be able to create an account, so I can login.
 * *DONE* As a host, I want to create a place to rent out, so that users can view it.
 * *DONE* As a traveler, I want to search for places by location, so I can more easily find something.
