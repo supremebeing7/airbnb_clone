@@ -4,6 +4,25 @@ AirBnb Clone
 View the demo site here:
 [http://airbnb-clone.herokuapp.com/](http://airbnb-clone.herokuapp.com/)
 
+####Usage
+
+* Run `git clone https://github.com/supremebeing7/airbnb_clone.git`
+* Run `bundle install`
+* Create database and migrations with `rake db:create` and `rake db:migrate db:test:prepare`
+
+####Contributing
+
+* Fork it
+* Create your feature branch `git checkout -b my-new-feature`
+* Commit your changes `git commit -am 'Add some feature'`
+* Pull recent changes to master with `git pull`
+* Merge master with your branch
+* Ensure all tests pass with `rspec`
+* Push to the branch `git push origin my-new-feature`
+* Create new Pull Request`
+
+##### User Stories
+
 * *DONE* As a user, I want to be able to create an account, so I can login.
 * *DONE* As a host, I want to create a place to rent out, so that users can view it.
 * *DONE* As a traveler, I want to search for places by location, so I can more easily find something.
