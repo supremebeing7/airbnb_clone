@@ -6,7 +6,9 @@
     <h4><%= "$" + sprintf('%.2f', @room.price) %></h4>
 
     <% if current_user == @room.user %>
-      <%= link_to "Add Pictures", new_room_picture_path(@room) %>
+      <%= link_to "Add Pictures", new_room_picture_path(@room), class: "btn btn-primary btn-xs" %>
+      <%= link_to "Edit Details", edit_room_path(@room), class: "btn btn-info btn-xs" %>
+      <%= link_to "Delete Room", @room, class: "btn btn-danger btn-xs", confirm: "Are you sure?", method: "DELETE" %>
     <% end %>
 
     <%= render @room %>

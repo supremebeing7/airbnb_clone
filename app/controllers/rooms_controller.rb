@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     if @room.save
       flash[:notice] = "Thanks for adding a new Room!"
-      redirect_to root_url
+      redirect_to @room
     else
       render new_room_path
     end
@@ -57,9 +57,10 @@ class RoomsController < ApplicationController
 
   def destroy
     @room = Room.find(params[:id])
+    @user = @room.user
     @room.destroy
     flash[:notice] = "Room Deleted"
-    redirect_to logout_path
+    redirect_to @user
   end
 
 private

@@ -11,6 +11,7 @@
   </div>
 
   <div class="col-md-4">
+    <%= link_to "Add Rooms for Rent", new_room_path, class: "btn btn-primary btn-lg" %>
     <% if @user.rooms.count > 0 %>
       <h4>Rooms owned</h4>
       <% @user.rooms.each do |room| %>

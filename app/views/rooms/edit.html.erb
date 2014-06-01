@@ -1,0 +1,7 @@
+<%= content_for :title, "Edit room details" %>
+
+<h1>Edit room details</h1>
+
+<%= render 'form' %>
+
+<%= link_to "Delete Room", @room, confirm: "Are you sure?", method: "DELETE" %>
