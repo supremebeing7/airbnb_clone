@@ -1,3 +1,5 @@
+<%= render 'layouts/errors', object: @avatar %>
+
 <%= form_for @user, :html => { :multipart => true }, remote: true, :authenticity_token => true do |f| %>
   <div class="form-group">
     <%= f.file_field :avatar %>
