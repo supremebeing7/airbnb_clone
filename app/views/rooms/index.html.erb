@@ -4,29 +4,29 @@
 
 
 
-<% if @pictures.any? %>
+<% if @pictures.any? && !params[:location] %>
   <div class="fadein">
     <% @pictures.each do |picture| %>
       <%= image_tag picture.image.url %>
     <% end %>
   </div>
-<% else %>
-  <h3>Slideshow will display here once you add some rooms with pictures!</h3>
 <% end %>
 
 
 <% if params[:location] || params[:start_date] %>
   <h4>Search Results</h4>
   <% if @available_rooms.count == 0 %>
-    <p>No rooms available in during those dates</p>
+    <p>No rooms available during those dates</p>
   <% end %>
 <% end %>
 <% @available_rooms.sort_by!{|room| room.average_rating}.reverse.each do |room| %>
   <p><%= link_to room.location, room_path(room) %></p>
   <p><%= "$" + sprintf('%.2f', room.price) %></p>
-  <% if room.pictures.count > 0 %>
-    <p><%= image_tag room.pictures.first.image.url(:thumb) %></p>
-  <% end %>
+  <p>
+    <% room.pictures.each do |pic| %>
+      <%= image_tag pic.image.url(:thumb) %>
+    <% end %>
+  </p><hr>
 <% end %>
 <br>
 
