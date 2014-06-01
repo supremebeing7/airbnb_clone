@@ -14,6 +14,19 @@ AirbnbClone::Application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer.default_url_options = { host: 'airbnb-clone.herokuapp.com' }
+  config.action_mailer.smtp_settings = {
+      :port => '587',
+      :address => 'smtp.mandrillapp.com',
+      :user_name => ENV['MANDRILL_USERNAME'],
+      :password => ENV['MANDRILL_APIKEY'],
+      :domain => 'heroku.com',
+      :authentication => :plain
+  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
@@ -27,7 +40,7 @@ AirbnbClone::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true

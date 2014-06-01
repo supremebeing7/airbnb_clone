@@ -2,7 +2,7 @@
 
 class RakeHerokuDeployer
   def initialize app_env
-    @app = ENV["#{app_env.to_s.upcase}_APP"]
+    @app = "airbnb-clone"
   end
 
   def run_migrations
