@@ -14,7 +14,7 @@
     <% if @user.rooms.count > 0 %>
       <h4>Rooms owned</h4>
       <% @user.rooms.each do |room| %>
-        <p><%= room.location %></p>
+        <p><%= link_to room.location, room %></p>
         <p><%= "$" + sprintf("%.2f", room.price) %></p>
         <p>Average Rating:
           <% room.average_rating.round.times do %>
