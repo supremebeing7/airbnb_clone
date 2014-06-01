@@ -1,3 +1,5 @@
+<%= render 'layouts/errors', object: @picture %>
+
 <%= form_for @picture, url: room_pictures_path(@room), :html => { :multipart => true } do |f| %>
   <%= f.hidden_field :room_id, :value => @room.id %>
   <div class="form-group">
