@@ -3,6 +3,7 @@ class Room < ActiveRecord::Base
   has_many :pictures
   has_many :bookings
   has_many :ratings
+  validates :price, :numericality => { :greater_than => 0 }
 
   def self.search(search)
     if search
