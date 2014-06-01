@@ -3,8 +3,8 @@
     <p>
       <div class="input-group input-group-sm">
         <%= text_field_tag :location, nil, placeholder: "Where do you want to go?", class: "form-control" %>
-        <%= date_field_tag :start_date, class: "form-control" %>
-        <%= date_field_tag :end_date, class: "form-control" %>
+        <%= date_field_tag :start_date, nil, {class: "form-control", placeholder: "mm/dd/yyyy"} %>
+        <%= date_field_tag :end_date, nil, {class: "form-control", placeholder: "mm/dd/yyyy"} %>
       <%= submit_tag "Search", :name => nil, class: "btn btn-primary" %>
       </div>
     </p>
