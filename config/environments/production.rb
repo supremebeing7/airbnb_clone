@@ -35,6 +35,16 @@ AirbnbClone::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = true
 
+  config.paperclip_defaults = {
+    :url => ':s3_domain_url',
+    :path => '/:class/:attachment/:id_partition/:style/:filename',
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['WHEREBNB_S3_BUCKET_NAME'],
+      :access_key_id => ENV['WHEREBNB_S3_ACCESS_KEY'],
+      :secret_access_key => ENV['WHEREBNB_S3_SECRET_KEY']
+    }
+  }
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
