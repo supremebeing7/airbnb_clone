@@ -7,9 +7,9 @@ class Room < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['location LIKE ?', "%#{search}%"])
+      Room.where('location LIKE ?', "%#{search}%")
     else
-      find(:all)
+      Room.all
     end
   end
 

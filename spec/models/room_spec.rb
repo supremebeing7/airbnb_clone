@@ -17,7 +17,9 @@ describe Room do
     it "searches all rooms" do
       @room2 = Room.create(location: Faker::Address.city, price: "100")
       @room3 = Room.create(location: Faker::Address.city, price: "122")
-      @room4 = Room.create(location: Faker::Address.city, price: "153")
+      @room4 = Room.create(location: "Sacramento", price: "153")
+      Room.search("Sacramento").should eq [@room4]
+      Room.search("Sacramento").should_not eq [@room3, @room4]
     end
   end
 
