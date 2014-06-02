@@ -9,13 +9,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt'
 gem 'paperclip', '~> 4.1'
-gem 'launchy'
 gem 'textacular', '~> 3.0'
-gem 'letter_opener'
-gem 'faker'
 gem 'devise'
 gem 'activesupport', '~>4.0.4'
-gem 'formtastic'
+gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor'
@@ -29,13 +26,14 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'capybara'
+  gem 'faker'
+  gem 'launchy'
   gem 'factory_girl_rails', "~> 4.0"
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'capybara'
   gem 'shoulda-matchers'
-  gem 'pry'
   gem 'database_cleaner'
 end

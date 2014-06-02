@@ -17,3 +17,5 @@
 
 # Ignore public files
 /public/
+
+.env
