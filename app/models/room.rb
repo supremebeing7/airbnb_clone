@@ -1,6 +1,6 @@
 class Room < ActiveRecord::Base
   belongs_to :user
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
   has_many :bookings
   has_many :ratings
   validates :price, :numericality => { :greater_than => 0 }
