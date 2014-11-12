@@ -12,6 +12,15 @@
   </div>
 <% end %>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h4>WhereBnB was built to clone the functionality of AirBnB, as a way to practice several aspects of Ruby on Rails, such as file uploads, mailers, search, ratings, and user authentication. The majority was built over two days, with limited time spent on style and only a few minor tweaks since. If you experience any bugs or issues while using the site, please feel free to add them to the <a href="https://github.com/supremebeing7/airbnb_clone/issues">issues page on Github</a>.</h4>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>
 
 <% if params[:location] || params[:start_date] %>
   <h4>Search Results</h4>
@@ -35,7 +44,8 @@
     <%= link_to image_tag(room.pictures.first.image.url(:medium)), room_path(room) %>
   <% end %>
 <% end %>
-<%= link_to "Add a New Room for Rent", new_room_path, class: 'btn btn-primary' %>
+
+<p><%= link_to "Add a New Room for Rent", new_room_path, class: 'btn btn-primary' %></p>
 
 
 
